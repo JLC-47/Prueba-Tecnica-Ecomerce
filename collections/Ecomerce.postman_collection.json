@@ -1,0 +1,142 @@
+{
+  "info": {
+    "_postman_id": "34a00d4d-ecb0-4ef5-b11e-9c070970dd40",
+    "name": "Ecomerce",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54518950"
+  },
+  "item": [
+    {
+      "name": "Ecomerce",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1234/product/get-catalog",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "product",
+            "get-catalog"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:1234/favorites/add-favorites",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"idCustomer\": 1,\r\n    \"idProduct\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:1234/favorites/add-favorites",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "favorites",
+            "add-favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:1234/favorites/get-favorite-customer/1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1234/favorites/delete-favorite/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "favorites",
+            "delete-favorite",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:1234/favorites/get-favorite-customer/1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1234/favorites/get-favorite-customer/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "favorites",
+            "get-favorite-customer",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:1234/history/Customer/1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1234/history/Customer/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "history",
+            "Customer",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:1234/product/get-catalog",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1234/product/get-catalog",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1234",
+          "path": [
+            "product",
+            "get-catalog"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

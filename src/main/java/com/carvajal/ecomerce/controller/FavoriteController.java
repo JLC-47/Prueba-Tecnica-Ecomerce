@@ -2,7 +2,7 @@ package com.carvajal.ecomerce.controller;
 
 import java.util.List;
 
-
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,19 +29,47 @@ public class FavoriteController {
 
     @PostMapping("/add-favorites")
     public ResponseEntity<MessageResponseDTO> addFavorite(@RequestBody FavoriteRequestDTO request){
-        MessageResponseDTO response = favoriteService.addFavorite(request);
-        return ResponseEntity.ok(response);
+        try {
+            MessageResponseDTO response = favoriteService.addFavorite(request);
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            MessageResponseDTO response = new MessageResponseDTO();
+            response.setMessage("Error en la petición");
+            return ResponseEntity.ok(response);
+        }
     }
 
     @GetMapping("/get-favorite-customer/{id}")
     public ResponseEntity<HttpGlobalResposeDTO<List<FavoriteResponseDTO>>> getFavoriteId(@PathVariable Long id){
-        HttpGlobalResposeDTO<List<FavoriteResponseDTO>> response = favoriteService.getFavoriteId(id);
-        return ResponseEntity.ok(response);
+        try {
+
+            HttpGlobalResposeDTO<List<FavoriteResponseDTO>> response = favoriteService.getFavoriteId(id);
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            HttpGlobalResposeDTO<List<FavoriteResponseDTO>> response = new HttpGlobalResposeDTO<>();
+            response.setMessage("Error, :-( ocurrio un error inesperado");
+            response.setData(null);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+
+
+        }
     }
     
     @DeleteMapping("/delete-favorite/{id}")
     public ResponseEntity<MessageResponseDTO> deleteFavorite(@PathVariable Long id){
-        MessageResponseDTO response = favoriteService.deleteFavorite(id);
-        return ResponseEntity.ok(response);
+        try {
+            MessageResponseDTO response = favoriteService.deleteFavorite(id);
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            MessageResponseDTO response = new MessageResponseDTO();
+
+            response.setMessage("Error, :-( ocurrio un error inesperado");
+
+            return ResponseEntity.ok(response);
+        }
     }
 }
